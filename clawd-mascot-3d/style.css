@@ -62,3 +62,23 @@
 .desk-prices .model-price{margin:10px 0 16px;color:var(--ink);line-height:1.1}
 .model-price strong{font-size:clamp(2.35rem,5vw,3.7rem);letter-spacing:-.055em}
 .model-price span{font-size:.43em;letter-spacing:.025em}
+
+.setup-disclosures{align-items:start}
+.setup-disclosures>.setup-card{padding:0}
+.setup-disclosures>.setup-card>summary{
+  padding:19px clamp(17px,3vw,28px);
+  margin:0;
+  border:0;
+  border-radius:16px;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-size:clamp(1.08rem,2.1vw,1.35rem);
+}
+.setup-disclosures summary::-webkit-details-marker{display:none}
+.setup-disclosures summary::after{content:"";width:8px;height:8px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);margin:0 3px 4px 0;flex:none}
+.setup-disclosures details[open]>summary::after{transform:rotate(225deg);margin-bottom:0}
+.setup-disclosures summary:hover{background:#f9e7d5}
+.setup-details{padding:0 clamp(17px,3vw,28px) 18px}
