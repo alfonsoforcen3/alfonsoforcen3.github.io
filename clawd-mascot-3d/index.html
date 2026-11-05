@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="assets/clawdy-hero.png">
   <link rel="canonical" href="https://alfonsoforcen3.github.io/clawd-mascot-3d/">
   <meta name="theme-color" content="#fff0df"><title>Clawdy — Stop checking on your AI.</title>
-  <link rel="stylesheet" href="style.css?v=launch-mascot"><script src="app.js?v=launch-46" defer></script>
+  <link rel="stylesheet" href="style.css?v=desk-prices"><script src="app.js?v=launch-46" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -76,10 +76,36 @@
             <li><strong>Pro Max:</strong> Adds a screen for status, session count, and provider.</li>
             <li><strong>Both:</strong> USB power and Bluetooth.</li>
           </ul>
-          <p class="physical-detail">Optional hardware. Setup for existing owners.</p>
-          <a class="button outline" href="#toy-setup">Set up a Clawdy you already own <span aria-hidden="true">↓</span></a>
+          <p class="physical-detail">Optional hardware for your desk.</p>
+          <div class="hardware-actions">
+            <a class="button primary" href="#get-clawdy">Get your own Clawdy <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#toy-setup">Already have one? Set it up ↓</a>
+          </div>
         </div>
       </div>
+    </section>
+    <section id="get-clawdy" class="wrap desk-prices" aria-labelledby="desk-prices-title">
+      <p class="eyebrow">PHYSICAL CLAWDY</p>
+      <h2 id="desk-prices-title">Get your own Clawdy.</h2>
+      <div class="setup-grid">
+        <article class="setup-card">
+          <h3>Clawdy</h3>
+          <p class="model-price"><strong>139 <span>AED</span></strong></p>
+          <ul class="scan-list">
+            <li>Three lights for working, done, and needs you.</li>
+            <li>USB power and Bluetooth.</li>
+          </ul>
+        </article>
+        <article class="setup-card">
+          <h3>Clawdy Pro Max</h3>
+          <p class="model-price"><strong>229 <span>AED</span></strong></p>
+          <ul class="scan-list">
+            <li>All three lights, plus a status display.</li>
+            <li>See the working session count and AI provider.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="setup-note">Ordering details coming soon.</p>
     </section>
     <div id="start"></div>
     <section id="setup" class="start-section wrap" aria-labelledby="setup-title">
@@ -92,7 +118,7 @@ cd Clawdy-Companion
 CLAWDY_BUILD_DIR="$HOME/Library/Caches/ClawdyPrototype/SourcePreview" bash desktop/macos/build.sh
 open "$HOME/Library/Caches/ClawdyPrototype/SourcePreview/VirtualClawdy.app" --args --demo</code></pre></details><a class="text-link" href="https://github.com/alfonsoforcen3/Clawdy-Companion/blob/main/docs/TRY_VIRTUAL_CLAWDY.md">Mac prerequisites and full guide ↗</a></article>
         <article class="setup-card"><p class="path-kicker">03 / WINDOWS</p><h3>Try the tray preview</h3><p>Build from source. Native Windows testing is pending.</p><a class="text-link" href="https://github.com/alfonsoforcen3/Clawdy-Companion/tree/main/desktop/windows">Windows build instructions ↗</a></article>
-        <article class="setup-card" id="toy-setup"><p class="path-kicker">04 / PHYSICAL CLAWDY</p><h3>Pair your desk toy</h3><ol><li><strong>Get ready.</strong> Git, Python 3.9+, and a Clawdy with firmware installed. Plug it into USB power and turn on Bluetooth.</li><li><strong>Run setup.</strong> Clone Clawdy Companion into a permanent folder. From there, run <code>python3 install.py --onboard</code> on Mac. Windows preview: <code>py -3 install.py --onboard</code>.</li><li><strong>Pair and check.</strong> Select your toy, allow Bluetooth, approve status hooks for your AI apps, then check the lights with a real task.</li></ol><a class="text-link" href="https://github.com/alfonsoforcen3/Clawdy-Companion/blob/main/docs/CUSTOMER_SETUP.md">Full buyer setup guide ↗</a><br><a class="text-link" href="https://github.com/alfonsoforcen3/Clawdy-Companion/blob/main/docs/CUSTOMER_AGENT.md">AI-assisted setup and offline preflight ↗</a></article>
+        <article class="setup-card" id="toy-setup"><p class="path-kicker">04 / PHYSICAL CLAWDY</p><h3>Pair your desk toy</h3><a class="text-link" href="#get-clawdy">See models and prices ↑</a><ol><li><strong>Get ready.</strong> Git, Python 3.9+, and a Clawdy with firmware installed. Plug it into USB power and turn on Bluetooth.</li><li><strong>Run setup.</strong> Clone Clawdy Companion into a permanent folder. From there, run <code>python3 install.py --onboard</code> on Mac. Windows preview: <code>py -3 install.py --onboard</code>.</li><li><strong>Pair and check.</strong> Select your toy, allow Bluetooth, approve status hooks for your AI apps, then check the lights with a real task.</li></ol><a class="text-link" href="https://github.com/alfonsoforcen3/Clawdy-Companion/blob/main/docs/CUSTOMER_SETUP.md">Full buyer setup guide ↗</a><br><a class="text-link" href="https://github.com/alfonsoforcen3/Clawdy-Companion/blob/main/docs/CUSTOMER_AGENT.md">AI-assisted setup and offline preflight ↗</a></article>
       </div>
       <p class="setup-note">Source builds only. Live status requires the local companion and a configured AI coding app. Windows toy setup still needs native testing.</p>
     </section>
