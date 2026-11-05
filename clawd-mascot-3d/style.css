@@ -82,3 +82,9 @@
 .setup-disclosures details[open]>summary::after{transform:rotate(225deg);margin-bottom:0}
 .setup-disclosures summary:hover{background:#f9e7d5}
 .setup-details{padding:0 clamp(17px,3vw,28px) 18px}
+
+.physical-media{min-width:0}
+.physical-photo>img{aspect-ratio:1250/1186;object-fit:contain;background:transparent}
+.desk-mockup{margin-top:8px}
+.desk-mockup summary{cursor:pointer;font-weight:600;min-height:44px;align-content:center}
+@media(max-width:780px){.physical-media{order:2}}
