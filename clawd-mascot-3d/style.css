@@ -41,3 +41,16 @@
   .launch-film{padding-block:28px 45px}
   .physical-art{width:100%;max-width:none}
 }
+
+/* Reuse the existing toy art as the visual signature. */
+.toy-mark{display:block;width:46px;height:auto;object-fit:contain;flex:none}
+.brand{display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.toy-mark.mini-toy{display:inline-block;width:22px;vertical-align:middle}
+.section-toy{width:108px;margin:0 auto 18px}
+.setup-toy{width:76px;align-self:center}
+.scan-list{padding-left:1.15em;margin:0 0 1.15em;font-size:1rem;line-height:1.5}
+.scan-list li+li{margin-top:.5em}
+.signal-list{list-style:none;padding:0}
+.signal-list .status-dot{display:inline-block;margin-right:.5em}
+.questions .scan-list{margin-top:.35em}
+@media(max-width:780px){.toy-mark{width:39px}.section-toy{width:84px}.setup-toy{width:61px;margin-block:10px}.nav .brand{gap:5px}}
