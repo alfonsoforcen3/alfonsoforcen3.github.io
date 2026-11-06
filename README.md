@@ -1,6 +1,6 @@
-# Public QR landing pages
+# Clawdy QR redirect
 
-Website-only mirror for https://alfonsoforcen3.github.io/clawd-mascot-3d.
-Published from main / root with GitHub Pages. No CAD or private project files.
-
-2026-10-16: restore the printed QR destination; private source repository cannot use Pages on the current plan. Product preview and hardware limitations remain unchanged.
+The Clawdy website is hosted by
+[Clawdy-Virtual](https://github.com/alfonsoforcen3/Clawdy-Virtual/tree/gh-pages).
+This site redirects the original printed QR and existing Clawdy links to the
+[current website](https://alfonsoforcen3.github.io/Clawdy-Virtual/).
