@@ -11,7 +11,10 @@ function openInstall(hash) {
   if (!installHashes.includes(hash)) return;
   installDisclosure.open = true;
   const target = document.querySelector(hash);
-  if (target.matches('.install-platform')) target.open = true;
+  if (target.matches('.install-platform')) {
+    target.dataset.pinned = '';
+    target.open = true;
+  }
 }
 
 installDisclosure.dataset.enhanced = '';
@@ -44,6 +47,51 @@ document.addEventListener('click', event => {
   const link = event.target.closest('a[href]');
   if (link !== installToggle) openInstall(link?.getAttribute('href'));
 });
+
+const fineHover = matchMedia('(any-hover: hover) and (any-pointer: fine)');
+for (const platform of installDisclosure.querySelectorAll('.install-platform')) {
+  const summary = platform.querySelector('summary');
+  let hoverTimer;
+
+  function closePreview() {
+    clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(() => {
+      if (!('pinned' in platform.dataset) && !platform.contains(document.activeElement)) {
+        platform.open = false;
+      }
+    }, 180);
+  }
+
+  platform.addEventListener('pointerenter', event => {
+    if (!fineHover.matches || event.pointerType !== 'mouse') return;
+    clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(() => {
+      if (installDisclosure.open) platform.open = true;
+    }, 120);
+  });
+  platform.addEventListener('pointerleave', event => {
+    if (event.pointerType === 'mouse') closePreview();
+  });
+  platform.addEventListener('focusout', event => {
+    if (!platform.contains(event.relatedTarget) && !platform.matches(':hover')) closePreview();
+  });
+  summary.addEventListener('click', event => {
+    event.preventDefault();
+    clearTimeout(hoverTimer);
+    if ('pinned' in platform.dataset) {
+      delete platform.dataset.pinned;
+      platform.open = false;
+    } else {
+      platform.dataset.pinned = '';
+      platform.open = true;
+    }
+  });
+  installDisclosure.addEventListener('toggle', () => {
+    if (installDisclosure.open) return;
+    clearTimeout(hoverTimer);
+    if (!('pinned' in platform.dataset)) platform.open = false;
+  });
+}
 
 for (const button of installDisclosure.querySelectorAll('[data-copy-install]')) {
   const prompt = document.getElementById(button.dataset.copyInstall);

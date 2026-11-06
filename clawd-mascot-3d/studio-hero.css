@@ -39,15 +39,19 @@
 }
 
 .install-platform {
-  border-top: 1px solid var(--line);
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fffbf6;
 }
 
 .install-platform > summary {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-height: 44px;
-  padding: 5px 3px;
+  gap: 10px;
+  min-height: 54px;
+  padding: 6px 13px;
+  border-radius: 11px;
   color: var(--ink);
   font-weight: 700;
   list-style: none;
@@ -58,12 +62,54 @@
   display: none;
 }
 
-.install-platform[open] > summary span {
-  transform: rotate(180deg);
+.platform-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #ead9c9;
+  border-radius: 9px;
+  background: #fff0e0;
+}
+
+.platform-hint {
+  margin-inline-start: auto;
+  color: var(--muted);
+  font-size: .75rem;
+  font-weight: 500;
+}
+
+.platform-chevron {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  margin: 0 3px 3px 2px;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
 }
 
 .install-platform[open] {
-  padding-bottom: 10px;
+  border-color: #ce9a80;
+  padding-bottom: 8px;
+}
+
+.install-platform[open] > summary {
+  background: #fff0e4;
+}
+
+.install-platform[open] .platform-chevron {
+  margin-bottom: -3px;
+  transform: rotate(225deg);
+}
+
+.install-platform > :not(summary) {
+  margin-inline: 10px;
+}
+
+.install-platform .prompt-card {
+  margin-top: 8px;
 }
 
 .prompt-card {
