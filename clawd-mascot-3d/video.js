@@ -5,6 +5,10 @@ for (const frame of document.querySelectorAll('.video-frame')) {
   const start = frame.querySelector('.video-start');
   const label = start.querySelector('.video-start-label');
   const status = frame.nextElementSibling;
+  const mobileSource = video.getAttribute('src');
+  let useHls = !wideVideo.matches && Boolean(video.canPlayType('application/vnd.apple.mpegurl'));
+  if (useHls) video.src = video.dataset.hlsSrc;
+  else if (wideVideo.matches) video.src = video.dataset.wideSrc;
   let attempt = 0;
   let timer;
 
@@ -13,7 +17,7 @@ for (const frame of document.querySelectorAll('.video-frame')) {
     attempt++;
     clearTimeout(timer);
     video.pause();
-    label.textContent = 'Retry playback';
+    label.textContent = useHls ? 'Try MP4 playback' : 'Retry playback';
     start.hidden = false;
     start.disabled = false;
     status.textContent = 'Playback couldn’t start. Try the direct video link below.';
@@ -22,8 +26,12 @@ for (const frame of document.querySelectorAll('.video-frame')) {
   start.hidden = false;
   start.addEventListener('click', () => {
     const currentAttempt = ++attempt;
-    if (currentAttempt === 1 && wideVideo.matches) video.src = video.dataset.wideSrc;
-    else if (currentAttempt > 1) video.load();
+    if (currentAttempt > 1 && useHls) {
+      useHls = false;
+      video.src = mobileSource;
+    } else if (currentAttempt > 1) {
+      video.load();
+    }
     label.textContent = 'Loading video…';
     status.textContent = '';
     start.disabled = true;

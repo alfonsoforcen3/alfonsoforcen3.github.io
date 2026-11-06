@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="showcase.css?v=70de4797">
   <link rel="stylesheet" href="studio-hero.css?v=766cfd71">
   <script src="studio-hero.js?v=4f22f0d2" defer></script>
-  <script src="video.js?v=4423f28b" defer></script>
+  <script src="video.js?v=a2e7fbcd" defer></script>
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
   <script type="module" src="scene.js?v=410fb2ad"></script>
 </head>
@@ -35,7 +35,7 @@
       </div>
       <figure class="hero-art hero-film" id="hero-film">
         <div class="video-frame">
-          <video controls playsinline preload="none" src="assets/clawdy-short-mobile.mp4" data-wide-src="assets/clawdy-short.mp4" width="848" height="480" poster="assets/clawdy-short-poster.webp" aria-label="Clawdy short demo">
+          <video controls playsinline preload="none" src="assets/clawdy-short-mobile.mp4" data-wide-src="assets/clawdy-short.mp4" data-hls-src="assets/hls/short/index.m3u8" width="848" height="480" poster="assets/clawdy-short-poster.webp" aria-label="Clawdy short demo">
             <track kind="captions" src="assets/clawdy-short.en.vtt" srclang="en" label="English">
           </video>
           <button type="button" class="video-start" hidden>
@@ -167,7 +167,7 @@ Start with --demo, and ask before launching or installing prerequisites. If poli
       </div>
       <figure class="launch-media">
         <div class="video-frame">
-          <video controls playsinline preload="none" src="assets/clawdy-launch-mobile.mp4" data-wide-src="assets/clawdy-launch.mp4" width="1280" height="720" poster="assets/clawdy-film-poster.webp" aria-label="Clawdy launch film">
+          <video controls playsinline preload="none" src="assets/clawdy-launch-mobile.mp4" data-wide-src="assets/clawdy-launch.mp4" data-hls-src="assets/hls/launch/index.m3u8" width="1280" height="720" poster="assets/clawdy-film-poster.webp" aria-label="Clawdy launch film">
             <track kind="captions" src="assets/clawdy-launch.en.vtt" srclang="en" label="English">
           </video>
           <button type="button" class="video-start" hidden>
