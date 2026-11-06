@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="assets/clawdy-hero.png">
   <link rel="canonical" href="https://alfonsoforcen3.github.io/clawd-mascot-3d/">
   <meta name="theme-color" content="#fff0df"><title>Clawdy — Stop checking on your AI.</title>
-  <link rel="stylesheet" href="style.css?v=06df0829"><script src="app.js?v=2f38eb82" defer></script>
+  <link rel="stylesheet" href="style.css?v=abb9f176"><script src="app.js?v=2f38eb82" defer></script>
   <link rel="stylesheet" href="desk-demo.css?v=eb44537e">
   <link rel="stylesheet" href="showcase.css?v=70de4797">
   <link rel="stylesheet" href="studio-hero.css?v=766cfd71">
@@ -33,12 +33,13 @@
         <p class="hero-note">Virtual Clawdy is available as a source preview.</p>
       </div>
       <figure class="hero-art hero-film" id="hero-film">
-        <video controls playsinline preload="none" width="848" height="480" poster="assets/clawdy-short-poster.webp" aria-label="Clawdy short demo">
-          <source src="assets/clawdy-short.mp4" type="video/mp4">
+        <video controls playsinline preload="metadata" src="assets/clawdy-short.mp4" width="848" height="480" poster="assets/clawdy-short-poster.webp" aria-label="Clawdy short demo">
           <track kind="captions" src="assets/clawdy-short.en.vtt" srclang="en" label="English">
-          <a href="assets/clawdy-short.mp4">Download the short demo</a>
         </video>
-        <figcaption>Illustrated demo · 17 seconds</figcaption>
+        <figcaption class="video-caption">
+          <span>Illustrated demo · 17 seconds</span>
+          <a href="assets/clawdy-short.mp4">Open short video ↗</a>
+        </figcaption>
       </figure>
       <details id="setup" class="virtual-install">
         <summary class="button outline">Install Virtual Clawdy</summary>
@@ -156,11 +157,12 @@ Start with --demo, and ask before launching or installing prerequisites. If poli
         </ul>
         <a class="text-link" href="#setup">Install Virtual Clawdy ↓</a>
       </div>
-      <video controls playsinline preload="none" width="1280" height="720" poster="assets/clawdy-film-poster.webp" aria-label="Clawdy launch film">
-        <source src="assets/clawdy-launch.mp4" type="video/mp4">
-        <track kind="captions" src="assets/clawdy-launch.en.vtt" srclang="en" label="English">
-        <a href="assets/clawdy-launch.mp4">Download the launch film</a>
-      </video>
+      <figure class="launch-media">
+        <video controls playsinline preload="metadata" src="assets/clawdy-launch.mp4" width="1280" height="720" poster="assets/clawdy-film-poster.webp" aria-label="Clawdy launch film">
+          <track kind="captions" src="assets/clawdy-launch.en.vtt" srclang="en" label="English">
+        </video>
+        <figcaption class="video-caption"><a href="assets/clawdy-launch.mp4">Open full video ↗</a></figcaption>
+      </figure>
     </section>
     <section id="compatibility" class="compatibility wrap" aria-labelledby="compatibility-title">
       <p class="eyebrow">LOCAL AI CODING TOOLS</p>

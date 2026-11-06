@@ -62,7 +62,9 @@
 
 .hero-film{margin:0}
 .hero-film video{display:block;width:100%;height:auto;aspect-ratio:848/480;border-radius:16px;background:#171719;box-shadow:0 14px 35px #392d282c}
-.hero-film figcaption{margin-top:10px;color:var(--muted);font-size:.82rem}
+.launch-media{margin:0;min-width:0}
+.video-caption{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 12px;margin-top:4px;color:var(--muted);font-size:.82rem}
+.video-caption a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:.18em}
 /* Match the framing of both product photos. */
 .model-mockup{display:block;width:100%;height:auto;aspect-ratio:330/216;object-fit:cover;border-radius:12px}
 .whatsapp-icon{width:18px;height:18px;flex:none;filter:brightness(0) invert(1)}
