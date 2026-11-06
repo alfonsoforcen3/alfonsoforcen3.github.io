@@ -8,11 +8,12 @@
   <link rel="icon" type="image/png" href="assets/clawdy-hero.png">
   <link rel="canonical" href="https://alfonsoforcen3.github.io/clawd-mascot-3d/">
   <meta name="theme-color" content="#fff0df"><title>Clawdy — Stop checking on your AI.</title>
-  <link rel="stylesheet" href="style.css?v=abb9f176"><script src="app.js?v=2f38eb82" defer></script>
+  <link rel="stylesheet" href="style.css?v=310f345a"><script src="app.js?v=2f38eb82" defer></script>
   <link rel="stylesheet" href="desk-demo.css?v=eb44537e">
   <link rel="stylesheet" href="showcase.css?v=70de4797">
   <link rel="stylesheet" href="studio-hero.css?v=766cfd71">
   <script src="studio-hero.js?v=4f22f0d2" defer></script>
+  <script src="video.js?v=4423f28b" defer></script>
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
   <script type="module" src="scene.js?v=410fb2ad"></script>
 </head>
@@ -33,12 +34,19 @@
         <p class="hero-note">Virtual Clawdy is available as a source preview.</p>
       </div>
       <figure class="hero-art hero-film" id="hero-film">
-        <video controls playsinline preload="metadata" src="assets/clawdy-short.mp4" width="848" height="480" poster="assets/clawdy-short-poster.webp" aria-label="Clawdy short demo">
-          <track kind="captions" src="assets/clawdy-short.en.vtt" srclang="en" label="English">
-        </video>
+        <div class="video-frame">
+          <video controls playsinline preload="none" src="assets/clawdy-short-mobile.mp4" data-wide-src="assets/clawdy-short.mp4" width="848" height="480" poster="assets/clawdy-short-poster.webp" aria-label="Clawdy short demo">
+            <track kind="captions" src="assets/clawdy-short.en.vtt" srclang="en" label="English">
+          </video>
+          <button type="button" class="video-start" hidden>
+            <img src="assets/clawdy-short-poster.webp" alt="">
+            <span><span aria-hidden="true">▶</span> <span class="video-start-label">Play short demo</span></span>
+          </button>
+        </div>
+        <p class="video-status" role="status"></p>
         <figcaption class="video-caption">
           <span>Illustrated demo · 17 seconds</span>
-          <a href="assets/clawdy-short.mp4">Open short video ↗</a>
+          <a href="assets/clawdy-short-mobile.mp4">Open short video ↗</a>
         </figcaption>
       </figure>
       <details id="setup" class="virtual-install">
@@ -158,10 +166,17 @@ Start with --demo, and ask before launching or installing prerequisites. If poli
         <a class="text-link" href="#setup">Install Virtual Clawdy ↓</a>
       </div>
       <figure class="launch-media">
-        <video controls playsinline preload="metadata" src="assets/clawdy-launch.mp4" width="1280" height="720" poster="assets/clawdy-film-poster.webp" aria-label="Clawdy launch film">
-          <track kind="captions" src="assets/clawdy-launch.en.vtt" srclang="en" label="English">
-        </video>
-        <figcaption class="video-caption"><a href="assets/clawdy-launch.mp4">Open full video ↗</a></figcaption>
+        <div class="video-frame">
+          <video controls playsinline preload="none" src="assets/clawdy-launch-mobile.mp4" data-wide-src="assets/clawdy-launch.mp4" width="1280" height="720" poster="assets/clawdy-film-poster.webp" aria-label="Clawdy launch film">
+            <track kind="captions" src="assets/clawdy-launch.en.vtt" srclang="en" label="English">
+          </video>
+          <button type="button" class="video-start" hidden>
+            <img src="assets/clawdy-film-poster.webp" alt="">
+            <span><span aria-hidden="true">▶</span> <span class="video-start-label">Play full walkthrough</span></span>
+          </button>
+        </div>
+        <p class="video-status" role="status"></p>
+        <figcaption class="video-caption"><a href="assets/clawdy-launch-mobile.mp4">Open full video ↗</a></figcaption>
       </figure>
     </section>
     <section id="compatibility" class="compatibility wrap" aria-labelledby="compatibility-title">
