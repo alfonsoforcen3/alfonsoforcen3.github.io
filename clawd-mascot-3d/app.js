@@ -1,7 +1,7 @@
 "use strict";
 // Only the canonical Pages URL may generate public links to simulated scenes.
 const shareDeployment = Object.freeze({ reviewed: true, publicDemoUrl: "https://alfonsoforcen3.github.io/clawd-mascot-3d/" });
-const publicSourceUrl = "https://github.com/alfonsoforcen3/Clawdy-Companion";
+const publicSourceUrl = "https://github.com/alfonsoforcen3/Clawdy-Virtual";
 const states = Object.freeze({
   working: { label: "ON IT", title: "Ideas in motion.", message: "Your chats are working. This moment is yours.", detail: "Two simulated chats are working. WIP counts working chats; the app labels show who is working.", color: "amber", wip: "2 WIP", providers: "Codex · Claude Code", target: "None", action: false },
   attention: { label: "YOUR TURN", title: "A little help?", message: "A Codex chat needs your attention.", detail: "Codex needs your attention. The 1 WIP · Claude Code label names the other chat still working, not the attention target. This question card stays until you close it or choose simulated Open chat, even if the lights change.", color: "red", wip: "1 WIP", providers: "Claude Code", target: "Codex", action: true },
