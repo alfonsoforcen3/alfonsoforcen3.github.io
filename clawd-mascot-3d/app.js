@@ -84,6 +84,7 @@ function demoPresentation(model) {
   return { current, card, recent, target: model.pending ? held.target : "None", action: model.pending !== null };
 }
 function initClawdyPage() {
+  const desk = document.querySelector("#experience");
   const card = document.querySelector("#demo-card");
   const menu = document.querySelector("#menu-preview");
   const feedback = document.querySelector("#demo-feedback");
@@ -93,7 +94,7 @@ function initClawdyPage() {
   const shareFeedback = document.querySelector("#share-feedback");
   const manual = document.querySelector("#share-manual");
   let currentState = stateFromUrl(location.href);
-  let model = createDemoState();
+  let model = { ...createDemoState(), visible: false };
   function renderCard() {
     const view = demoPresentation(model);
     const state = view.card;
@@ -108,7 +109,7 @@ function initClawdyPage() {
     document.querySelector("#card-foot").textContent = view.action ? `Saved until Open chat or close · current status: ${view.current.label.toLowerCase()} · simulated` : "Simulated status · no live apps connected";
     announcement.textContent = `Simulated current status: ${view.current.label.toLowerCase()}. ${view.current.wip}. Working applications: ${view.current.providers || "none"}. Saved attention target: ${view.target}.${view.recent ? " Recent alert remains available." : ""}`;
   }
-  function cardEvent(type) { model = reduceDemoState(model, { type }); renderCard(); if (type === "close" || type === "toggle" && !model.visible) feedback.textContent = "Card closed. Hover will not reopen it; click the menu-bar control or choose a new scene to inspect status."; }
+  function cardEvent(type) { model = reduceDemoState(model, { type }); renderCard(); }
   function updateSharing() {
     const payload = sharePayload(location.href, currentState);
     document.querySelector("#share-boundary").textContent = payload.boundary;
@@ -122,26 +123,32 @@ function initClawdyPage() {
   function setState(key, updateUrl = true, oneLeft = false) {
     currentState = validState(key) ? key : "working";
     model = reduceDemoState(model, { type: "select", key: currentState, explicit: updateUrl, oneLeft });
+    if (!model.pending) model.visible = false;
     const state = demoPresentation(model).current;
-    document.querySelectorAll("[data-state]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.state === currentState)));
-    document.querySelector("#demo-detail").textContent = state.detail;
+    desk.dataset.scene = currentState;
+    const selected = desk.querySelector(`[data-state="${currentState}"]`);
+    desk.querySelectorAll("[data-state]").forEach(button => button.setAttribute("aria-pressed", String(button === selected)));
+    const sceneLabel = selected.textContent.trim();
+    desk.querySelectorAll("[data-desk-label]").forEach(label => { label.textContent = sceneLabel; });
+    desk.querySelectorAll("[data-desk-wip]").forEach(label => { label.textContent = state.wip; });
+    desk.querySelector("#desk-oled-status").textContent = state.label;
     document.querySelector("#demo-wip").textContent = state.wip;
     const providers = document.querySelector("#demo-providers");
     providers.textContent = state.providers;
     providers.hidden = !state.providers;
-    document.querySelectorAll("#demo-lights .lamp").forEach(lamp => {
+    desk.querySelectorAll(".desk-scene .lamp").forEach(lamp => {
       lamp.classList.toggle("on", lamp.classList.contains(state.color));
       lamp.classList.toggle("blink", currentState === "attention" && lamp.classList.contains("red"));
     });
     document.querySelector("#finish-demo").hidden = currentState !== "working" || oneLeft;
-    feedback.textContent = model.pending ? "The alert stays until you close it or choose simulated Open chat. Lights and WIP show current status." : "Hover or click the menu-bar lights to explore the card.";
+    feedback.textContent = "";
     if (updateUrl) {
       try { const url = new URL(location.href); url.searchParams.set("demo", currentState); history.replaceState(null, "", url.href); } catch { /* File/restricted previews remain usable. */ }
     }
     updateSharing();
     renderCard();
   }
-  document.querySelectorAll("[data-state]").forEach(button => button.addEventListener("click", () => setState(button.dataset.state)));
+  desk.querySelectorAll("[data-state]").forEach(button => button.addEventListener("click", () => setState(button.dataset.state)));
   document.querySelector("#finish-demo").addEventListener("click", () => { setState("working", true, true); document.querySelector("[data-state=working]").focus({ preventScroll: true }); });
   menu.addEventListener("click", () => cardEvent("toggle"));
   menu.addEventListener("pointerenter", event => { if (event.pointerType !== "touch") cardEvent("hover"); });
